@@ -1,7 +1,7 @@
 {
     "name": "week6.server",
     "version": "1.0.0",
-    "description": "modula",
+    "description": "modulacion",
     "main": "index.js",
     "type": "module",
     "scripts": {
