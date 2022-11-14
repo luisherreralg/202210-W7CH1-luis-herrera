@@ -1,50 +1,36 @@
-# Serve Node-Express-TypeScrip-Jest
+# Week 7 - Challenge 2
 
-## Express
+## API REST Things I already know
 
--   Framework minimalista para crear servidores Node
-    -   especialmente APIs
-    -   patron: chain of responsibility
-    -   implementado con middleware
+Crea una API REST que se conecte a un fichero JSON, para manipular recursos de tipo _cosas que ya sé_. El JSON tendrá una sola propiedad de tipo array, donde almacenarán objetos que representarán cosas que hemos aprendido en el bootcamp. Duplica el fichero JSON de datos para que una sea la de pruebas y otra la de producción.
 
-## Instalación
+La API REST debe tener los siguientes endpoints:
 
-```shell
-npm i express @types/express
-```
+[GET] /things -> devuelve el array de cosas que ya sé
 
-## Utilización
+[GET] /things/:idThing -> devuelve una cosa que ya sé
 
-### Directamente
+[DELETE] /things/:idThing -> borra una cosa que ya sé
 
-```ts
-import express from 'express';
+[POST] /things -> crea una cosa que ya sé (la recibe en el body)
 
-const app = express();
-const port = 3800;
+[PATCH] /things -> modifica una cosa que ya sé (la recibe en el body)
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+## Opción extra:
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
-});
-```
+Para iniciar la API, el programa debe mostrarle al usuario las siguientes preguntas (utiliza el paquete `inquirer`):
 
-### En un server de node
+-   ¿En qué puerto quieres que se inicie la API? (respuesta por defecto: 4000)
+-   ¿Qué fichero quieres usar? (pregunta con varias opciones, una única respuesta)
+    -   Pruebas
+    -   Producción
+-   ¿Quieres permitir que los clientes puedan crear, borrar y modificar? (respuesta de sí o no)
 
--   index.ts -> http.server(app)
--   app.ts -> export const app = express()
+## Utiliza el patrón de express:
 
-### Midleware
+-   server.ts
+-   app.ts
+-   /router
+-   /controller
 
--   Elementos de terceros
-
--   Morgan: logger
--   CORS: Cross-Origin Resource Sharing
--   Parse.json() // incluido en Express
-
-#### Utilización
-
-app.use()
+## Testear los controllers
